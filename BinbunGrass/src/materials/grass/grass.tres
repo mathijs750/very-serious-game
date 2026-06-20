@@ -1,0 +1,37 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://buof7755aweam"]
+
+[ext_resource type="Shader" uid="uid://jqrwa1d8fqbj" path="res://BinbunGrass/src/shader/grass.gdshader" id="1_55blt"]
+[ext_resource type="Texture2D" uid="uid://di62ixsr75dl2" path="res://BinbunGrass/src/palette/palette.tres" id="2_vqxye"]
+[ext_resource type="Texture2D" uid="uid://cnyumwmjoxyc2" path="res://BinbunGrass/src/palette/big_noise.tres" id="3_5m805"]
+[ext_resource type="Texture2D" uid="uid://bhpw23w1qwcjc" path="res://BinbunGrass/src/texture/fuzzy/grass_fuzzy_atlas.png" id="4_3t1j2"]
+[ext_resource type="Texture2D" uid="uid://d1agd0ps5ghx0" path="res://BinbunGrass/src/texture/fuzzy/grass_fuzzy_02.png" id="5_qg83o"]
+
+[sub_resource type="Gradient" id="Gradient_lquwl"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_lquwl"]
+noise_type = 0
+fractal_octaves = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7mycd"]
+width = 1024
+height = 1024
+noise = SubResource("FastNoiseLite_lquwl")
+color_ramp = SubResource("Gradient_lquwl")
+seamless = true
+seamless_blend_skirt = 0.2
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_55blt")
+shader_parameter/billboard = true
+shader_parameter/shape_texture = ExtResource("5_qg83o")
+shader_parameter/shape_atlas = ExtResource("4_3t1j2")
+shader_parameter/use_atlas = true
+shader_parameter/noise_texture = ExtResource("3_5m805")
+shader_parameter/color_gradient = ExtResource("2_vqxye")
+shader_parameter/random_variation = 0.0
+shader_parameter/wind_texture = SubResource("NoiseTexture2D_7mycd")
+shader_parameter/wind_velocity = Vector2(0, 0)
+shader_parameter/alpha_cut_start = 0.0
+shader_parameter/alpha_cut_end = 0.2
+shader_parameter/alpha_mode = 1

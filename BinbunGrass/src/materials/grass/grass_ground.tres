@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dmq4j2hfsgu1x"]
+
+[ext_resource type="Shader" uid="uid://d2pxrch4crrap" path="res://BinbunGrass/src/shader/ground.gdshader" id="1_hh47x"]
+[ext_resource type="Texture2D" uid="uid://di62ixsr75dl2" path="res://BinbunGrass/src/palette/palette.tres" id="2_6evkx"]
+[ext_resource type="Texture2D" uid="uid://cnyumwmjoxyc2" path="res://BinbunGrass/src/palette/big_noise.tres" id="3_6evkx"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_hh47x")
+shader_parameter/noise_texture = ExtResource("3_6evkx")
+shader_parameter/color_gradient = ExtResource("2_6evkx")
