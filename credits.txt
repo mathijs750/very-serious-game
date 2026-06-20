@@ -1,0 +1,9 @@
+Assets
+------
+Shiba Inu by Quaternius (https://poly.pizza/m/y4wdQpg767)
+godot-grass by Binbun3d (https://binbun3d.itch.io/godot-grass)
+Cursor Pack (1.1) by Kenney (https://kenney.nl/assets/cursor-pack)
+
+Fonts
+-----
+Dongle font by The Dongle Project Authors (https://github.com/yangheeryu/Dongle)
