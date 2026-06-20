@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://48m62a5ebffo"]
+
+[ext_resource type="PackedScene" uid="uid://bnxkpfllnw5rv" path="res://dog/dog.tscn" id="2_fj7yv"]
+[ext_resource type="PackedScene" uid="uid://lgueylfqmuwn" path="res://BinbunGrass/field.res" id="3_aqk2v"]
+[ext_resource type="PackedScene" uid="uid://b21h2soo4ucqy" path="res://ui/ui.tscn" id="3_tlwt5"]
+
+[sub_resource type="Environment" id="Environment_f3sb7"]
+background_mode = 1
+background_color = Color(0.6400466, 0.7760293, 0.90431976, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.23637116, 0.35745153, 0.40004605, 1)
+ambient_light_energy = 1.25
+tonemap_mode = 4
+glow_enabled = true
+
+[node name="World" type="Node3D" unique_id=268619599]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1849380828]
+environment = SubResource("Environment_f3sb7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=747166918]
+transform = Transform3D(-0.6334904, 0.6496442, -0.42030036, 0.21973549, 0.6718818, 0.7073126, 0.7418937, 0.35572076, -0.56838053, 0, 6.123582, 0)
+
+[node name="Dog" parent="." unique_id=1253699808 instance=ExtResource("2_fj7yv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21733284, 0, -0.0003566742)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=110858369]
+transform = Transform3D(-3.090862e-08, -0.7071068, 0.7071068, -3.090862e-08, 0.7071068, 0.7071068, -1, 0, -4.3711392e-08, 3.6943324, 4.114792, 4.7683716e-07)
+fov = 55.1
+
+[node name="Control" parent="." unique_id=118455921 instance=ExtResource("3_tlwt5")]
+
+[node name="Node3D" parent="." unique_id=21943078 instance=ExtResource("3_aqk2v")]

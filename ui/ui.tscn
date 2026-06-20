@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://b21h2soo4ucqy"]
+
+[ext_resource type="Script" uid="uid://cmnmr47ynei0x" path="res://ui/ui.gd" id="1_ks8t7"]
+[ext_resource type="Texture2D" uid="uid://bbafqjfljkqef" path="res://ui/demi.png" id="1_nb4k0"]
+
+[node name="ui" type="Control" unique_id=118455921]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ks8t7")
+
+[node name="Panel" type="Panel" parent="." unique_id=325155056]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 180.0
+grow_horizontal = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Panel" unique_id=281966556]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Panel/HSplitContainer" unique_id=84312525]
+layout_mode = 2
+
+[node name="avatar" type="TextureRect" parent="Panel/HSplitContainer/PanelContainer" unique_id=43764541]
+layout_mode = 2
+texture = ExtResource("1_nb4k0")
+expand_mode = 3
+
+[node name="Panel" type="Panel" parent="Panel/HSplitContainer" unique_id=721416155]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/HSplitContainer/Panel" unique_id=1174005128]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[wave amp=50.0 freq=5.0 connected=1]They love it when I bark and fart 💖💖💖[/wave]
+"
+horizontal_alignment = 1
+vertical_alignment = 1

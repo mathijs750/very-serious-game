@@ -1,0 +1,11 @@
+[gd_resource type="Theme" format=3 uid="uid://cjk2jlsvgfl4s"]
+
+[ext_resource type="FontFile" uid="uid://uebdoojr281" path="res://fonts/Dongle-Regular.ttf" id="1_nat4l"]
+[ext_resource type="FontFile" uid="uid://vvjnavyl6xad" path="res://fonts/Dongle-Bold.ttf" id="2_uy3bk"]
+
+[resource]
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_nat4l")
+RichTextLabel/font_sizes/normal_font_size = 32
+RichTextLabel/fonts/bold_font = ExtResource("2_uy3bk")
+RichTextLabel/fonts/normal_font = ExtResource("1_nat4l")
