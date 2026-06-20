@@ -32,3 +32,5 @@ fov = 55.1
 [node name="Control" parent="." unique_id=118455921 instance=ExtResource("3_tlwt5")]
 
 [node name="Node3D" parent="." unique_id=21943078 instance=ExtResource("3_aqk2v")]
+
+[connection signal="full_spin_completed" from="Dog" to="Control" method="_on_dog_full_spin_completed"]
