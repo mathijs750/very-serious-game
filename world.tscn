@@ -21,8 +21,9 @@ environment = SubResource("Environment_f3sb7")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=747166918]
 transform = Transform3D(-0.6334904, 0.6496442, -0.42030036, 0.21973549, 0.6718818, 0.7073126, 0.7418937, 0.35572076, -0.56838053, 0, 6.123582, 0)
 
-[node name="Dog" parent="." unique_id=1253699808 instance=ExtResource("2_fj7yv")]
+[node name="Dog" parent="." unique_id=1253699808 node_paths=PackedStringArray("camera") instance=ExtResource("2_fj7yv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21733284, 0, -0.0003566742)
+camera = NodePath("../Camera3D")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=110858369]
 transform = Transform3D(-3.090862e-08, -0.7071068, 0.7071068, -3.090862e-08, 0.7071068, 0.7071068, -1, 0, -4.3711392e-08, 3.6943324, 4.114792, 4.7683716e-07)

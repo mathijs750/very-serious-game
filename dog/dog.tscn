@@ -6,20 +6,32 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_g4v7s"]
+radius = 0.05
+height = 0.5
+
 [node name="Dog" type="CharacterBody3D" unique_id=1088446546]
+collision_layer = 2
+input_ray_pickable = false
 script = ExtResource("1_mo3i0")
 
 [node name="mesh" type="Node3D" parent="." unique_id=1254791676]
-transform = Transform3D(0.305, 0, 0, 0, 0.305, 0, 0, 0, 0.305, 0, 0, -0.07492733)
+transform = Transform3D(0.305, 0, 0, 0, 0.305, 0, 0, 0, 0.305, 0, 0, 0)
 
 [node name="dog" parent="mesh" unique_id=749197801 instance=ExtResource("1_c5eso")]
-transform = Transform3D(-1.0000001, 0, 8.7422784e-08, 0, 1.0000001, 0, -8.7422784e-08, 0, -1.0000001, 0, 0, 0)
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0, -2.2473495)
 
 [node name="ShibaInu" parent="mesh/dog/RootNode/AnimalArmature/Skeleton3D" parent_id_path=PackedInt32Array(749197801, 256889658) index="16" unique_id=114856291]
 surface_material_override/0 = ExtResource("2_23r22")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=824997506]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5005845, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5005845, -0.60490084)
 shape = SubResource("SphereShape3D_g4v7s")
+
+[node name="center" type="MeshInstance3D" parent="." unique_id=2086632982]
+mesh = SubResource("CapsuleMesh_g4v7s")
+
+[node name="mouse" type="MeshInstance3D" parent="." unique_id=1871546743]
+mesh = SubResource("CapsuleMesh_g4v7s")
 
 [editable path="mesh/dog"]
