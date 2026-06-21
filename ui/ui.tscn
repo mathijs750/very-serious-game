@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cmnmr47ynei0x" path="res://ui/ui.gd" id="1_ks8t7"]
 [ext_resource type="Texture2D" uid="uid://bbafqjfljkqef" path="res://ui/demi.png" id="1_nb4k0"]
+[ext_resource type="AudioStream" uid="uid://cthteuqyhji56" path="res://sound/barks.tres" id="3_wl5ax"]
 
 [node name="ui" type="Control" unique_id=118455921]
 layout_mode = 3
@@ -12,14 +13,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ks8t7")
 
-[node name="Panel" type="Panel" parent="." unique_id=325155056]
+[node name="DogPanel" type="Panel" parent="." unique_id=325155056]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 180.0
 grow_horizontal = 2
 
-[node name="HSplitContainer" type="HSplitContainer" parent="Panel" unique_id=281966556]
+[node name="HSplitContainer" type="HBoxContainer" parent="DogPanel" unique_id=587659079]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,18 +28,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="Panel/HSplitContainer" unique_id=84312525]
+[node name="PanelContainer" type="PanelContainer" parent="DogPanel/HSplitContainer" unique_id=84312525]
 layout_mode = 2
 
-[node name="avatar" type="TextureRect" parent="Panel/HSplitContainer/PanelContainer" unique_id=43764541]
+[node name="avatar" type="TextureRect" parent="DogPanel/HSplitContainer/PanelContainer" unique_id=43764541]
 layout_mode = 2
 texture = ExtResource("1_nb4k0")
 expand_mode = 3
 
-[node name="Panel" type="Panel" parent="Panel/HSplitContainer" unique_id=721416155]
+[node name="Panel" type="Panel" parent="DogPanel/HSplitContainer" unique_id=721416155]
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/HSplitContainer/Panel" unique_id=1174005128]
+[node name="RichTextLabel" type="RichTextLabel" parent="DogPanel/HSplitContainer/Panel" unique_id=1174005128]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -46,9 +48,66 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
 text = "[wave amp=50.0 freq=5.0 connected=1]They love it when I bark and fart 💖💖💖[/wave]
 "
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PoopBar" type="ProgressBar" parent="DogPanel/HSplitContainer" unique_id=1979486867]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+
+[node name="HumanPanel" type="Panel" parent="." unique_id=281726404]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -180.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HSplitContainer" type="HBoxContainer" parent="HumanPanel" unique_id=592440876]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PatienceBar" type="ProgressBar" parent="HumanPanel/HSplitContainer" unique_id=1334723019]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+
+[node name="Panel" type="Panel" parent="HumanPanel/HSplitContainer" unique_id=1060308235]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HumanPanel/HSplitContainer/Panel" unique_id=1532793074]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[wave amp=20.0 freq=7.0 connected=1]We have to go doggy[/wave]
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="HumanPanel/HSplitContainer" unique_id=1985522595]
+layout_mode = 2
+
+[node name="avatar" type="TextureRect" parent="HumanPanel/HSplitContainer/PanelContainer" unique_id=255999419]
+layout_mode = 2
+texture = ExtResource("1_nb4k0")
+expand_mode = 3
+
+[node name="bark" type="AudioStreamPlayer3D" parent="." unique_id=2137032109]
+stream = ExtResource("3_wl5ax")

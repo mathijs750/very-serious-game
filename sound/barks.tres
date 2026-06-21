@@ -1,0 +1,9 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://cthteuqyhji56"]
+
+[ext_resource type="AudioStream" uid="uid://banitk20mxjvv" path="res://sound/144885__princess6537__woof.mp3" id="1_d8d2b"]
+
+[resource]
+random_pitch = 1.122462
+random_volume_offset_db = 3.1
+streams_count = 1
+stream_0/stream = ExtResource("1_d8d2b")

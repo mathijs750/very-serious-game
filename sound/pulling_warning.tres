@@ -1,0 +1,14 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://c77oijnhursfi"]
+
+[ext_resource type="AudioStream" uid="uid://bc1lv26qgdpyq" path="res://sound/578685__nomiqbomi__synth-brass-wob-6.mp3" id="1_ce2a8"]
+[ext_resource type="AudioStream" uid="uid://c3hbbajbfbr7w" path="res://sound/578691__nomiqbomi__synth-brass-wob-9.mp3" id="2_jbslr"]
+[ext_resource type="AudioStream" uid="uid://cts5sovoeb20g" path="res://sound/578693__nomiqbomi__synth-brass-wob-11.mp3" id="3_q3y76"]
+[ext_resource type="AudioStream" uid="uid://lv0sb5su3ppt" path="res://sound/578698__nomiqbomi__synth-brass-wob-15.mp3" id="4_nt7x8"]
+
+[resource]
+random_pitch = 1.0293022
+streams_count = 4
+stream_0/stream = ExtResource("1_ce2a8")
+stream_1/stream = ExtResource("2_jbslr")
+stream_2/stream = ExtResource("3_q3y76")
+stream_3/stream = ExtResource("4_nt7x8")
