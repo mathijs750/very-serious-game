@@ -80,8 +80,8 @@ func _process(delta: float) -> void:
 func _update_meters() -> void:
   if has_node("%PatienceBar"):
     %PatienceBar.value = patience_left / PATIENCE_MAX * 100.0
-  if has_node("%PoopBar"):
-    %PoopBar.value = poop_energy * 100.0
+  if has_node("%PoopMeter"):
+    %PoopMeter.set_value(poop_energy)
 
 
 
@@ -100,13 +100,14 @@ func _lose_game() -> void:
 func update_text() -> void:
   var my_gen := _start_new_cycle()
 
-  %RichTextLabel.text = ""
+  %DogBubble.hide()
   await get_tree().create_timer(5.0).timeout
 
   if not _is_current(my_gen):
     return  # a spin (or another call) happened while we were waiting — abandon this update
 
-  %RichTextLabel.text = "[wave amp=50.0 freq=5.0 connected=1]%s[/wave]" % messages.pick_random()
+  %DogBubble.show()
+  %DogBubble.get_child(0).text = "[wave amp=50.0 freq=5.0 connected=1]%s[/wave]" % messages.pick_random()
   $bark.play()
 
 func _on_dog_full_spin_completed(direction: int) -> void:
@@ -116,9 +117,11 @@ func _on_dog_full_spin_completed(direction: int) -> void:
     spin_multiplier += 1.0
 
   if direction == 1:
-    %RichTextLabel.text = "[wave amp=50.0 freq=-1.0 connected=1]%s[/wave]" % messages_CCW.pick_random()
+    %DogBubble.show()
+    %DogBubble.get_child(0).text = "[wave amp=50.0 freq=-1.0 connected=1]%s[/wave]" % messages_CCW.pick_random()
   else:
-    %RichTextLabel.text = "[wave amp=50.0 freq=1.0 connected=1]%s[/wave]" % messages_CW.pick_random()
+    %DogBubble.show()
+    %DogBubble.get_child(0).text = "[wave amp=50.0 freq=1.0 connected=1]%s[/wave]" % messages_CW.pick_random()
   $bark.play()
 
   await get_tree().create_timer(1.0).timeout
@@ -134,7 +137,8 @@ func _on_dog_squat_started() -> void:
   spin_multiplier = 1.0
 
   var my_gen := _start_new_cycle()  # invalidate idle-text timer
-  %RichTextLabel.text = "[wave amp=50.0 freq=3.0 connected=1]%s[/wave]" % messages_squat.pick_random()
+  %DogBubble.show()
+  %DogBubble.get_child(0).text = "[wave amp=50.0 freq=3.0 connected=1]%s[/wave]" % messages_squat.pick_random()
 
   await get_tree().create_timer(1.0).timeout
   if not _is_current(my_gen):

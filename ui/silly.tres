@@ -1,13 +1,15 @@
 [gd_resource type="Theme" format=3 uid="uid://cjk2jlsvgfl4s"]
 
 [ext_resource type="FontFile" uid="uid://k8yf4jv3lgk3" path="res://fonts/PatrickHand-Regular.ttf" id="1_mb6mw"]
-[ext_resource type="StyleBox" uid="uid://cue1qul7eq3u0" path="res://ui/brown_style_box_flat.tres" id="2_uy3bk"]
+[ext_resource type="StyleBox" uid="uid://bqp864u4ouxr3" path="res://ui/brown_style_box.tres" id="2_uy3bk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g4v7s"]
 
 [resource]
 Label/colors/font_color = Color(0.99607843, 0.9607843, 0.32156864, 1)
 Label/font_sizes/font_size = 32
 Label/fonts/font = ExtResource("1_mb6mw")
 Panel/styles/panel = ExtResource("2_uy3bk")
-PanelContainer/styles/panel = ExtResource("2_uy3bk")
+PanelContainer/styles/panel = SubResource("StyleBoxEmpty_g4v7s")
 RichTextLabel/colors/default_color = Color(0.99607843, 0.9607843, 0.32156864, 1)
 RichTextLabel/font_sizes/normal_font_size = 32

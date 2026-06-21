@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dp6eqpmyn8ek8"]
+
+[ext_resource type="Script" uid="uid://dofevvvnooece" path="res://poop_meter.gd" id="1_lxbbe"]
+[ext_resource type="Shader" uid="uid://d1xpf02hn7mao" path="res://ui/gauge_strip.gdshader" id="2_whi6s"]
+[ext_resource type="Texture2D" uid="uid://edphgny2f74" path="res://ui/poop.png" id="3_l3ifj"]
+[ext_resource type="Texture2D" uid="uid://csy35erfu8dnn" path="res://ui/poop_bar.png" id="4_tb7kg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
+shader = ExtResource("2_whi6s")
+shader_parameter/strip_texture = ExtResource("3_l3ifj")
+shader_parameter/value = 0.710000033725
+shader_parameter/window_fraction = 0.5330000253175
+
+[node name="PoopMeter" type="Control" unique_id=278931982]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lxbbe")
+
+[node name="Guage" type="TextureRect" parent="." unique_id=1711680053]
+material = SubResource("ShaderMaterial_g4v7s")
+layout_mode = 0
+offset_left = 22.0
+offset_top = 22.0
+offset_right = 278.0
+offset_bottom = 278.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_tb7kg")
+
+[node name="Frame" type="TextureRect" parent="." unique_id=1439880458]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 256.0
+texture = ExtResource("4_tb7kg")
