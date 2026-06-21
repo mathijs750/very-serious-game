@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://48m62a5ebffo"]
 
+[ext_resource type="AudioStream" uid="uid://baxvajy0de5ja" path="res://sound/background.ogg" id="1_aqk2v"]
 [ext_resource type="PackedScene" uid="uid://bnxkpfllnw5rv" path="res://dog/dog.tscn" id="2_fj7yv"]
 [ext_resource type="PackedScene" uid="uid://lgueylfqmuwn" path="res://BinbunGrass/field.res" id="3_aqk2v"]
 [ext_resource type="PackedScene" uid="uid://b21h2soo4ucqy" path="res://ui/ui.tscn" id="3_tlwt5"]
@@ -21,6 +22,11 @@ environment = SubResource("Environment_f3sb7")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=747166918]
 transform = Transform3D(-0.6334904, 0.6496442, -0.42030036, 0.21973549, 0.6718818, 0.7073126, 0.7418937, 0.35572076, -0.56838053, 0, 6.123582, 0)
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="DirectionalLight3D" unique_id=1754760280]
+stream = ExtResource("1_aqk2v")
+volume_db = -12.0
+autoplay = true
+
 [node name="Dog" parent="." unique_id=1253699808 node_paths=PackedStringArray("camera") instance=ExtResource("2_fj7yv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21733284, 0, -0.0003566742)
 camera = NodePath("../Camera3D")
@@ -34,3 +40,5 @@ fov = 55.1
 [node name="Node3D" parent="." unique_id=21943078 instance=ExtResource("3_aqk2v")]
 
 [connection signal="full_spin_completed" from="Dog" to="Control" method="_on_dog_full_spin_completed"]
+[connection signal="squat_ended" from="Dog" to="Control" method="_on_dog_squat_ended"]
+[connection signal="squat_started" from="Dog" to="Control" method="_on_dog_squat_started"]

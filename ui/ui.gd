@@ -1,5 +1,22 @@
 extends Control
 
+signal game_won
+signal game_lost
+
+const PATIENCE_MAX := (5 * 60.0)  # in seconds
+const PATIENCE_DRAIN_NORMAL := 2.0   # patience units lost per second, not squatting
+const PATIENCE_DRAIN_SQUAT := 0.5    # patience units lost per second, while squatting
+const POOP_CHARGE_RATE := 0.08       # base poop_energy gain per second while squatting
+const POOP_DISCHARGE_RATE := 0.15    # poop_energy lost per second while not squatting
+
+var patience_left := PATIENCE_MAX
+var poop_energy := 0.0  # Max 1.0
+
+var is_squatting := false
+var spin_multiplier := 1.0  # +1 per spin while squatting, resets when squat ends
+
+var game_over := false
+
 var messages: Array[String] = [
   "They love it when I bark and fart 💖",
   "Did you know: The developers added real wet dog smell to my model",
@@ -23,11 +40,61 @@ var messages_CCW: Array[String] = [
   "Backwards!",
 ]
 
+var messages_squat: Array[String] = [
+  "*strains*",
+  "Almost there...",
+  "Nnnngh",
+  "This might take a while",
+]
+
 var _generation := 0  # bump this any time pending timers should be invalidated
 
 
 func _ready() -> void:
   update_text()
+
+
+func _process(delta: float) -> void:
+  if game_over:
+    return
+
+  # --- patience drain ---
+  var drain_rate := PATIENCE_DRAIN_SQUAT if is_squatting else PATIENCE_DRAIN_NORMAL
+  patience_left = max(patience_left - drain_rate * delta, 0.0)
+  if patience_left <= 0.0:
+    _lose_game()
+    return
+
+  # --- poop energy charge / discharge ---
+  if is_squatting:
+    poop_energy = min(poop_energy + POOP_CHARGE_RATE * spin_multiplier * delta, 1.0)
+    if poop_energy >= 1.0:
+      _win_game()
+      return
+  else:
+    poop_energy = max(poop_energy - POOP_DISCHARGE_RATE * delta, 0.0)
+
+  _update_meters()
+
+
+func _update_meters() -> void:
+  if has_node("%PatienceBar"):
+    %PatienceBar.value = patience_left / PATIENCE_MAX * 100.0
+  if has_node("%PoopBar"):
+    %PoopBar.value = poop_energy * 100.0
+
+
+
+func _win_game() -> void:
+  game_over = true
+  print("Win!")
+  game_won.emit()
+
+
+func _lose_game() -> void:
+  game_over = true
+  print("Lose!")
+  game_lost.emit()
 
 
 func update_text() -> void:
@@ -40,21 +107,43 @@ func update_text() -> void:
     return  # a spin (or another call) happened while we were waiting — abandon this update
 
   %RichTextLabel.text = "[wave amp=50.0 freq=5.0 connected=1]%s[/wave]" % messages.pick_random()
-
+  $bark.play()
 
 func _on_dog_full_spin_completed(direction: int) -> void:
   var my_gen := _start_new_cycle()  # invalidates the idle-text timer above
+
+  if is_squatting:
+    spin_multiplier += 1.0
 
   if direction == 1:
     %RichTextLabel.text = "[wave amp=50.0 freq=-1.0 connected=1]%s[/wave]" % messages_CCW.pick_random()
   else:
     %RichTextLabel.text = "[wave amp=50.0 freq=1.0 connected=1]%s[/wave]" % messages_CW.pick_random()
+  $bark.play()
 
   await get_tree().create_timer(1.0).timeout
 
   if not _is_current(my_gen):
     return  # another spin happened before this 1s message finished showing
 
+  update_text()
+
+
+func _on_dog_squat_started() -> void:
+  is_squatting = true
+  spin_multiplier = 1.0
+
+  var my_gen := _start_new_cycle()  # invalidate idle-text timer
+  %RichTextLabel.text = "[wave amp=50.0 freq=3.0 connected=1]%s[/wave]" % messages_squat.pick_random()
+
+  await get_tree().create_timer(1.0).timeout
+  if not _is_current(my_gen):
+    return
+
+
+func _on_dog_squat_ended() -> void:
+  is_squatting = false
+  spin_multiplier = 1.0
   update_text()
 
 
