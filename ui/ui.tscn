@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://b21h2soo4ucqy"]
 
 [ext_resource type="Script" uid="uid://cmnmr47ynei0x" path="res://ui/ui.gd" id="1_ks8t7"]
-[ext_resource type="Texture2D" uid="uid://bbafqjfljkqef" path="res://ui/demi.png" id="1_nb4k0"]
 [ext_resource type="PackedScene" uid="uid://dp6eqpmyn8ek8" path="res://ui/poop_meter.tscn" id="3_vkava"]
 [ext_resource type="AudioStream" uid="uid://cthteuqyhji56" path="res://sound/barks.tres" id="3_wl5ax"]
 [ext_resource type="Texture2D" uid="uid://snju558e5gnc" path="res://ui/leash.png" id="4_tf0e0"]
+[ext_resource type="Texture2D" uid="uid://cyf5evcumnrlo" path="res://ui/owner_2.png" id="5_gycre"]
+[ext_resource type="Texture2D" uid="uid://cmo7tb4tnk2d7" path="res://ui/owner_1.png" id="5_obcwv"]
+[ext_resource type="Texture2D" uid="uid://c48v5osbaefm8" path="res://ui/owner_3.png" id="6_pa1oa"]
+[ext_resource type="Texture2D" uid="uid://c4lrp6hsa78gv" path="res://ui/owner_4.png" id="7_ay4pc"]
 
 [node name="ui" type="Control" unique_id=118455921]
 layout_mode = 3
@@ -19,50 +22,15 @@ script = ExtResource("1_ks8t7")
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_right = -680.0
-offset_bottom = 180.0
+offset_right = -1004.0
+offset_bottom = 262.0
 grow_horizontal = 2
-
-[node name="HSplitContainer" type="HBoxContainer" parent="DogPanel" unique_id=587659079]
-layout_mode = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="DogPanel/HSplitContainer" unique_id=84312525]
-layout_mode = 2
-
-[node name="avatar" type="TextureRect" parent="DogPanel/HSplitContainer/PanelContainer" unique_id=43764541]
-layout_mode = 2
-texture = ExtResource("1_nb4k0")
-expand_mode = 3
-
-[node name="DogBubble" type="Panel" parent="DogPanel/HSplitContainer" unique_id=721416155]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="RichTextLabel" type="RichTextLabel" parent="DogPanel/HSplitContainer/DogBubble" unique_id=1174005128]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 58.0
-offset_top = 35.0
-offset_right = -36.0
-offset_bottom = -39.0
-grow_horizontal = 2
-grow_vertical = 2
-bbcode_enabled = true
-text = "[wave amp=50.0 freq=5.0 connected=1]They love it when I bark and fart 💖💖💖[/wave]
-"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="PoopMeter" parent="DogPanel" unique_id=278931982 instance=ExtResource("3_vkava")]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_stretch_ratio = 0.0
 offset_transform_enabled = true
-offset_transform_position_ratio = Vector2(-0.135, 0.885)
-offset_transform_scale = Vector2(0.71, 0.71)
+offset_transform_scale = Vector2(0.89, 0.89)
 
 [node name="HumanPanel" type="PanelContainer" parent="." unique_id=291243864]
 layout_mode = 1
@@ -81,13 +49,26 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 1
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_position = Vector2(42.43, -29.345)
+offset_transform_scale = Vector2(1, 3.395)
+rounded = true
+fill_mode = 1
+show_percentage = false
+
+[node name="PanelContainer2" type="PanelContainer" parent="HumanPanel/HSplitContainer" unique_id=1178902804]
+layout_mode = 2
+
+[node name="avatar" type="TextureRect" parent="HumanPanel/HSplitContainer/PanelContainer2" unique_id=362812825]
+layout_mode = 2
+texture = ExtResource("4_tf0e0")
+expand_mode = 3
 
 [node name="HumanBubble" type="Panel" parent="HumanPanel/HSplitContainer" unique_id=1060308235]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-offset_transform_enabled = true
 offset_transform_scale = Vector2(-1, -1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HumanPanel/HSplitContainer/HumanBubble" unique_id=1532793074]
@@ -101,28 +82,37 @@ offset_right = -52.0
 offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 2
-offset_transform_enabled = true
-offset_transform_scale = Vector2(-1, -1)
 bbcode_enabled = true
 text = "[wave amp=20.0 freq=7.0 connected=1]We have to go doggy[/wave]
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="HumanPanel/HSplitContainer" unique_id=1985522595]
+[node name="Avatars" type="PanelContainer" parent="HumanPanel/HSplitContainer" unique_id=1985522595]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="avatar" type="TextureRect" parent="HumanPanel/HSplitContainer/PanelContainer" unique_id=255999419]
+[node name="avatar_1" type="TextureRect" parent="HumanPanel/HSplitContainer/Avatars" unique_id=255999419]
 layout_mode = 2
-texture = ExtResource("1_nb4k0")
+texture = ExtResource("5_obcwv")
 expand_mode = 3
 
-[node name="PanelContainer2" type="PanelContainer" parent="HumanPanel/HSplitContainer" unique_id=1178902804]
+[node name="avatar_2" type="TextureRect" parent="HumanPanel/HSplitContainer/Avatars" unique_id=66700211]
+visible = false
 layout_mode = 2
+texture = ExtResource("5_gycre")
+expand_mode = 3
 
-[node name="avatar" type="TextureRect" parent="HumanPanel/HSplitContainer/PanelContainer2" unique_id=362812825]
+[node name="avatar_3" type="TextureRect" parent="HumanPanel/HSplitContainer/Avatars" unique_id=1135043751]
+visible = false
 layout_mode = 2
-texture = ExtResource("4_tf0e0")
+texture = ExtResource("6_pa1oa")
+expand_mode = 3
+
+[node name="avatar_4" type="TextureRect" parent="HumanPanel/HSplitContainer/Avatars" unique_id=1391150065]
+visible = false
+layout_mode = 2
+texture = ExtResource("7_ay4pc")
 expand_mode = 3
 
 [node name="bark" type="AudioStreamPlayer3D" parent="." unique_id=2137032109]
