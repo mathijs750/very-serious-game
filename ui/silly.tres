@@ -1,15 +1,28 @@
 [gd_resource type="Theme" format=3 uid="uid://cjk2jlsvgfl4s"]
 
+[ext_resource type="StyleBox" uid="uid://ctohtgt0bivf2" path="res://ui/flat_box_orange.tres" id="1_2p151"]
 [ext_resource type="FontFile" uid="uid://k8yf4jv3lgk3" path="res://fonts/PatrickHand-Regular.ttf" id="1_mb6mw"]
-[ext_resource type="StyleBox" uid="uid://bqp864u4ouxr3" path="res://ui/brown_style_box.tres" id="2_uy3bk"]
+[ext_resource type="StyleBox" uid="uid://cttmij2khdjbw" path="res://ui/flat_box_brown.tres" id="2_2p151"]
+[ext_resource type="StyleBox" uid="uid://dlpph1dohjpvs" path="res://ui/flat_box_blue.tres" id="3_onytq"]
+[ext_resource type="StyleBox" uid="uid://bdcxvn05wqlii" path="res://ui/speech_box.tres" id="5_2p151"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g4v7s"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2p151"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pa1oa"]
 
 [resource]
+Button/colors/font_color = Color(1, 0.90588236, 0.6313726, 1)
+Button/colors/font_hover_color = Color(0.36078432, 0.28235295, 0.25490198, 1)
+Button/colors/font_hover_pressed_color = Color(0.36078432, 0.28235295, 0.25490198, 1)
+Button/colors/font_pressed_color = Color(0.36078432, 0.28235295, 0.25490198, 1)
+Button/styles/hover = ExtResource("1_2p151")
+Button/styles/normal = ExtResource("2_2p151")
+Button/styles/pressed = ExtResource("3_onytq")
+HSeparator/styles/separator = SubResource("StyleBoxEmpty_2p151")
 Label/colors/font_color = Color(0.36078432, 0.28235295, 0.25490198, 1)
 Label/font_sizes/font_size = 32
 Label/fonts/font = ExtResource("1_mb6mw")
-Panel/styles/panel = ExtResource("2_uy3bk")
-PanelContainer/styles/panel = SubResource("StyleBoxEmpty_g4v7s")
+Panel/styles/panel = ExtResource("5_2p151")
+PanelContainer/styles/panel = SubResource("StyleBoxEmpty_pa1oa")
 RichTextLabel/colors/default_color = Color(0.36078432, 0.28235295, 0.25490198, 1)
 RichTextLabel/font_sizes/normal_font_size = 41

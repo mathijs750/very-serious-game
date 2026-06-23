@@ -93,14 +93,20 @@ func _update_meters() -> void:
 
 func _win_game() -> void:
   game_over = true
-  print("Win!")
   game_won.emit()
+  %ResultLabel.text = "You Win!"
+  %EndScreen.show()
 
 
 func _lose_game() -> void:
   game_over = true
-  print("Lose!")
   game_lost.emit()
+  %ResultLabel.text = "Game Over!"
+  %EndScreen.show()
+
+
+func _on_restart_pressed() -> void:
+  get_tree().change_scene_to_file("res://world.tscn")
 
 
 func update_text() -> void:

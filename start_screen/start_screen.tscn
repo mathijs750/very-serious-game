@@ -1,0 +1,178 @@
+[gd_scene format=3 uid="uid://bnw7lecqovdky"]
+
+[ext_resource type="Script" uid="uid://dax5owi3l2foa" path="res://start_screen/start_screen.gd" id="1_8bm5k"]
+[ext_resource type="Texture2D" uid="uid://bbafqjfljkqef" path="res://ui/demi.png" id="2_pevhg"]
+[ext_resource type="Texture2D" uid="uid://c4lrp6hsa78gv" path="res://ui/owner_4.png" id="3_5vdfa"]
+[ext_resource type="Texture2D" uid="uid://bsdfxsqghujx0" path="res://ui/AdobeColor-My Color Theme(1).jpeg" id="3_og173"]
+[ext_resource type="PackedScene" uid="uid://t865yjlrh2x3" path="res://dog/dog.glb" id="4_c3q8q"]
+[ext_resource type="Material" uid="uid://d1hs4dfx7bie" path="res://dog/dog.tres" id="5_5vdfa"]
+
+[sub_resource type="Environment" id="Environment_30j53"]
+background_mode = 1
+background_color = Color(0.6400466, 0.7760293, 0.90431976, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.23637116, 0.35745153, 0.40004605, 1)
+ambient_light_energy = 1.25
+tonemap_mode = 4
+glow_enabled = true
+
+[node name="StartScreen" type="Control" unique_id=100000001]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8bm5k")
+
+[node name="Background" type="ColorRect" parent="." unique_id=100000002]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.6400466, 0.7760293, 0.90431976, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=100000003]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=100000004]
+custom_minimum_size = Vector2(400.01, 0)
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="CenterContainer/VBoxContainer" unique_id=1821705146]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 72
+bbcode_enabled = true
+text = "[shake rate=10.0 level=10 connected=1]Poopy Loopy[/shake]"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Subtitle" type="RichTextLabel" parent="CenterContainer/VBoxContainer" unique_id=1744005806]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[shake rate=15.0 level=3 connected=1]Always spin before you poop![/shake]"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/VBoxContainer" unique_id=258268330]
+custom_minimum_size = Vector2(0, 23.675)
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=100000007]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Play!"
+
+[node name="CreditsButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=100000008]
+layout_mode = 2
+text = "Credits"
+
+[node name="Demi" type="Sprite2D" parent="." unique_id=435558067]
+visible = false
+position = Vector2(310, 220)
+texture = ExtResource("2_pevhg")
+
+[node name="bAASJE" type="Sprite2D" parent="." unique_id=1572837900]
+position = Vector2(1041, 520)
+rotation = 0.35430184
+texture = ExtResource("3_5vdfa")
+
+[node name="CreditsPopup" type="Control" parent="." unique_id=200000001]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DimRect" type="ColorRect" parent="CreditsPopup" unique_id=200000002]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.9075, 0.63, 0.8117647)
+
+[node name="CenterContainer" type="CenterContainer" parent="CreditsPopup" unique_id=200000003]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CreditsPopup/CenterContainer" unique_id=200000004]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsPopup/CenterContainer/PanelContainer" unique_id=200000005]
+layout_mode = 2
+
+[node name="CreditsTitle" type="Label" parent="CreditsPopup/CenterContainer/PanelContainer/VBoxContainer" unique_id=200000006]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="CreditsText" type="RichTextLabel" parent="CreditsPopup/CenterContainer/PanelContainer/VBoxContainer" unique_id=200000007]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 20
+text = "placeholder. File did not export :("
+
+[node name="CloseButton" type="Button" parent="CreditsPopup/CenterContainer/PanelContainer/VBoxContainer" unique_id=200000008]
+layout_mode = 2
+text = "Close"
+
+[node name="AdobeColorMyColorTheme(1)" type="Sprite2D" parent="CreditsPopup" unique_id=47671858]
+position = Vector2(-1204, 1313)
+texture = ExtResource("3_og173")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=2073264183]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 1.0
+offset_right = 581.0
+offset_bottom = 513.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=428252200]
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="dog" parent="SubViewportContainer/SubViewport" unique_id=749197801 instance=ExtResource("4_c3q8q")]
+transform = Transform3D(0.5222227, 0, 0.8528093, 0, 1.0000001, 0, -0.8528093, 0, 0.5222227, 0, 0, -2.2473495)
+
+[node name="ShibaInu" parent="SubViewportContainer/SubViewport/dog/RootNode/AnimalArmature/Skeleton3D" parent_id_path=PackedInt32Array(749197801, 256889658) index="16" unique_id=114856291]
+surface_material_override/0 = ExtResource("5_5vdfa")
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=1453200440]
+transform = Transform3D(0.803776, -0.09456769, 0.587368, 0.021927934, 0.9913241, 0.1295986, -0.5945278, -0.09128844, 0.79887605, 5.3784704, 2.6676898, 4.3269653)
+fov = 32.9
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport" unique_id=1816055636]
+environment = SubResource("Environment_30j53")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport" unique_id=1404746677]
+transform = Transform3D(0.41698655, -0.35575622, 0.8363968, -0.4220208, 0.7392277, 0.52482474, -0.8049974, -0.57182163, 0.15811142, 0, 6.123582, 0)
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/PlayButton" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="CreditsPopup/CenterContainer/PanelContainer/VBoxContainer/CloseButton" to="." method="_on_close_pressed"]
+
+[editable path="SubViewportContainer/SubViewport/dog"]
