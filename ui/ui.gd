@@ -90,6 +90,11 @@ func _update_meters() -> void:
     %PoopMeter.set_value(poop_energy)
 
 
+func _on_line_length_changed(ratio: float) -> void:
+  if has_node("%LineMeter"):
+    %LineMeter.value = ratio * 100.0
+
+
 
 func _win_game() -> void:
   game_over = true

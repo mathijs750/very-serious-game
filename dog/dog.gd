@@ -1,3 +1,4 @@
+class_name Dog
 extends CharacterBody3D
 
 signal full_spin_completed(direction: int)  # -1 = clockwise, 1 = counter-clockwise
@@ -5,6 +6,7 @@ signal squat_started
 signal squat_ended
 
 @export var camera: Camera3D
+@onready var collar: Marker3D = $mesh/dog/Collar
 
 const SPEED := 5.0
 const RAY_LENGTH := 1000.0

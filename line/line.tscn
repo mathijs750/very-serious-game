@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dg7rirgytp4c0"]
+
+[ext_resource type="Script" uid="uid://btba8dr1ecvbe" path="res://line.gd" id="1_ctx40"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_g4v7s"]
+
+[node name="Line" type="MeshInstance3D" unique_id=1386578847]
+mesh = SubResource("QuadMesh_g4v7s")
+script = ExtResource("1_ctx40")

@@ -24,14 +24,19 @@ transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0,
 [node name="ShibaInu" parent="mesh/dog/RootNode/AnimalArmature/Skeleton3D" parent_id_path=PackedInt32Array(749197801, 256889658) index="16" unique_id=114856291]
 surface_material_override/0 = ExtResource("2_23r22")
 
+[node name="Collar" type="Marker3D" parent="mesh/dog" unique_id=1640000001]
+transform = Transform3D(3.2786884, 0, 0, 0, 3.2786884, 0, 0, 0, 3.2786884, 0, 2.505797, 0.94812775)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=824997506]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5005845, -0.60490084)
 shape = SubResource("SphereShape3D_g4v7s")
 
 [node name="center" type="MeshInstance3D" parent="." unique_id=2086632982]
+visible = false
 mesh = SubResource("CapsuleMesh_g4v7s")
 
 [node name="mouse" type="MeshInstance3D" parent="." unique_id=1871546743]
+visible = false
 mesh = SubResource("CapsuleMesh_g4v7s")
 
 [editable path="mesh/dog"]
